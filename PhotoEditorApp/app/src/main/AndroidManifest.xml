@@ -24,7 +24,12 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".EditActivity" android:exported="false"/>
+        <activity android:name=".EditActivity" android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".CropRotateActivity" android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".MarkupActivity" android:exported="false"
+            android:screenOrientation="portrait"/>
 
     </application>
 

@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">Photo Editor</string>
+    <string name="pick_photo">Pick a Photo</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="done">Done</string>
+    <string name="reset">Reset</string>
+    <string name="tool_adjust">Adjust</string>
+    <string name="tool_filters">Filters</string>
+    <string name="tool_crop">Crop</string>
+    <string name="tool_auto">Auto</string>
+    <string name="tool_portrait">Portrait</string>
+    <string name="tool_markup">Markup</string>
+    <string name="cat_light">Light</string>
+    <string name="cat_color">Color</string>
+    <string name="cat_bw">B&amp;W</string>
+    <string name="cat_detail">Detail</string>
+    <string name="saved">Photo saved to gallery</string>
+    <string name="auto_applied">Auto-enhance applied</string>
+    <string name="portrait_unavailable">Portrait controls require a Portrait-mode photo</string>
+    <string name="flip_h">Flip H</string>
+    <string name="flip_v">Flip V</string>
+    <string name="pen">Pen</string>
+    <string name="highlighter">Highlight</string>
+    <string name="eraser">Eraser</string>
+    <string name="undo">Undo</string>
+    <string name="intensity">Intensity</string>
 </resources>
