@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_dark">#1a1a1a</color>
+    <color name="bg_toolbar">#2a2a2a</color>
+    <color name="accent">#6200EE</color>
+    <color name="accent_light">#BB86FC</color>
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_grey">#AAAAAA</color>
+    <color name="tab_selected">#6200EE</color>
+    <color name="tab_unselected">#444444</color>
+</resources>

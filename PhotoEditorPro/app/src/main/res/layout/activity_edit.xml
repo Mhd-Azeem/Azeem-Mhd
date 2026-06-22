@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_dark">
+
+    <!-- Top toolbar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:background="@color/bg_toolbar">
+
+        <Button
+            android:id="@+id/btnBack"
+            android:text="Back"
+            android:textSize="13sp"
+            android:backgroundTint="@color/tab_unselected"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"/>
+
+        <View android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/btnAutoEnhance"
+            android:text="✦ Auto"
+            android:textSize="13sp"
+            android:backgroundTint="@color/tab_unselected"
+            android:layout_marginEnd="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"/>
+
+        <Button
+            android:id="@+id/btnSave"
+            android:text="Save"
+            android:textSize="13sp"
+            android:backgroundTint="@color/accent"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"/>
+
+    </LinearLayout>
+
+    <!-- Image + Markup overlay -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:padding="4dp"/>
+
+        <com.photoeditor.app.MarkupView
+            android:id="@+id/markupView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:visibility="gone"/>
+
+    </FrameLayout>
+
+    <!-- ===== ADJUST PANEL ===== -->
+    <LinearLayout
+        android:id="@+id/adjustPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <!-- Category tabs -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:orientation="horizontal"
+            android:background="@color/bg_toolbar">
+
+            <Button android:id="@+id/btnCatLight" android:text="Light"
+                android:textSize="12sp" android:layout_width="0dp"
+                android:layout_height="match_parent" android:layout_weight="1"
+                android:backgroundTint="@color/accent"/>
+
+            <Button android:id="@+id/btnCatColor" android:text="Color"
+                android:textSize="12sp" android:layout_width="0dp"
+                android:layout_height="match_parent" android:layout_weight="1"
+                android:backgroundTint="@color/tab_unselected"/>
+
+            <Button android:id="@+id/btnCatBW" android:text="B&amp;W"
+                android:textSize="12sp" android:layout_width="0dp"
+                android:layout_height="match_parent" android:layout_weight="1"
+                android:backgroundTint="@color/tab_unselected"/>
+
+            <Button android:id="@+id/btnCatDetail" android:text="Detail"
+                android:textSize="12sp" android:layout_width="0dp"
+                android:layout_height="match_parent" android:layout_weight="1"
+                android:backgroundTint="@color/tab_unselected"/>
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="170dp">
+
+            <LinearLayout
+                android:id="@+id/slidersContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"/>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <!-- ===== FILTERS PANEL ===== -->
+    <LinearLayout
+        android:id="@+id/filterPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvFilters"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"/>
+
+    </LinearLayout>
+
+    <!-- ===== CROP PANEL ===== -->
+    <LinearLayout
+        android:id="@+id/cropPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:padding="8dp">
+
+        <!-- Rotate/Flip row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="8dp">
+
+            <Button android:id="@+id/btnRotateCCW" android:text="↺ 90°"
+                android:textSize="13sp" android:backgroundTint="@color/tab_unselected"
+                android:layout_marginEnd="8dp"
+                android:layout_width="wrap_content" android:layout_height="40dp"/>
+
+            <Button android:id="@+id/btnRotateCW" android:text="↻ 90°"
+                android:textSize="13sp" android:backgroundTint="@color/tab_unselected"
+                android:layout_marginEnd="8dp"
+                android:layout_width="wrap_content" android:layout_height="40dp"/>
+
+            <Button android:id="@+id/btnFlipH" android:text="⇔ Flip H"
+                android:textSize="13sp" android:backgroundTint="@color/tab_unselected"
+                android:layout_marginEnd="8dp"
+                android:layout_width="wrap_content" android:layout_height="40dp"/>
+
+            <Button android:id="@+id/btnFlipV" android:text="⇕ Flip V"
+                android:textSize="13sp" android:backgroundTint="@color/tab_unselected"
+                android:layout_width="wrap_content" android:layout_height="40dp"/>
+
+        </LinearLayout>
+
+        <!-- Straighten slider -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
+
+            <TextView android:text="Straighten"
+                android:textColor="@color/text_white" android:textSize="13sp"
+                android:layout_width="90dp" android:layout_height="wrap_content"/>
+
+            <SeekBar android:id="@+id/seekStraighten"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:max="90" android:progress="45"/>
+
+            <TextView android:id="@+id/txtStraighten"
+                android:text="0°" android:textColor="@color/text_grey"
+                android:textSize="12sp" android:layout_marginStart="8dp"
+                android:layout_width="36dp" android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- ===== MARKUP PANEL ===== -->
+    <LinearLayout
+        android:id="@+id/markupPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:padding="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <Button android:id="@+id/btnPen" android:text="✏ Pen"
+                android:textSize="12sp" android:backgroundTint="@color/accent"
+                android:layout_marginEnd="8dp"
+                android:layout_width="wrap_content" android:layout_height="40dp"/>
+
+            <Button android:id="@+id/btnEraser" android:text="◻ Erase"
+                android:textSize="12sp" android:backgroundTint="@color/tab_unselected"
+                android:layout_marginEnd="8dp"
+                android:layout_width="wrap_content" android:layout_height="40dp"/>
+
+            <HorizontalScrollView
+                android:layout_width="0dp" android:layout_height="40dp"
+                android:layout_weight="1" android:layout_marginEnd="8dp">
+
+                <LinearLayout
+                    android:id="@+id/colorPicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"/>
+
+            </HorizontalScrollView>
+
+            <Button android:id="@+id/btnUndo" android:text="Undo"
+                android:textSize="12sp" android:backgroundTint="@color/tab_unselected"
+                android:layout_marginEnd="8dp"
+                android:layout_width="wrap_content" android:layout_height="40dp"/>
+
+            <Button android:id="@+id/btnClearMarkup" android:text="Clear"
+                android:textSize="12sp" android:backgroundTint="#B00020"
+                android:layout_width="wrap_content" android:layout_height="40dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingTop="4dp">
+
+            <TextView android:text="Size"
+                android:textColor="@color/text_white" android:textSize="13sp"
+                android:layout_width="40dp" android:layout_height="wrap_content"/>
+
+            <SeekBar android:id="@+id/seekBrushSize"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:max="40" android:progress="8"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Main bottom toolbar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:orientation="horizontal"
+        android:background="@color/bg_toolbar">
+
+        <Button android:id="@+id/btnToolAdjust" android:text="Adjust"
+            android:textSize="11sp" android:backgroundTint="@color/accent"
+            android:layout_width="0dp" android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <Button android:id="@+id/btnToolFilter" android:text="Filters"
+            android:textSize="11sp" android:backgroundTint="@color/tab_unselected"
+            android:layout_width="0dp" android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <Button android:id="@+id/btnToolCrop" android:text="Crop"
+            android:textSize="11sp" android:backgroundTint="@color/tab_unselected"
+            android:layout_width="0dp" android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <Button android:id="@+id/btnToolMarkup" android:text="Markup"
+            android:textSize="11sp" android:backgroundTint="@color/tab_unselected"
+            android:layout_width="0dp" android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+</LinearLayout>
