@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_dark">#1a1a1a</color>
+    <color name="bg_panel">#242424</color>
+    <color name="bg_toolbar">#2a2a2a</color>
+    <color name="bg_card">#333333</color>
+    <color name="accent">#0A84FF</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#AAAAAA</color>
+    <color name="tab_active">#FFFFFF</color>
+    <color name="tab_inactive">#666666</color>
+    <color name="handle_color">#FFFFFF</color>
+    <color name="crop_overlay">#99000000</color>
+</resources>

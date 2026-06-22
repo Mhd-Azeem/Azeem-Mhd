@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#1a1a1a">
+
+    <!-- Toolbar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:background="#2a2a2a">
+        <Button
+            android:id="@+id/btnCropCancel"
+            android:text="Cancel"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#444444"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"/>
+        <View android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1"/>
+        <TextView
+            android:text="Crop &amp; Rotate"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <View android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1"/>
+        <Button
+            android:id="@+id/btnCropDone"
+            android:text="Done"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#0A84FF"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"/>
+    </LinearLayout>
+
+    <!-- Crop view -->
+    <com.photoeditor.app.view.CropView
+        android:id="@+id/cropView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#000000"/>
+
+    <!-- Rotation row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="12dp"
+        android:background="#2a2a2a">
+        <TextView
+            android:text="Straighten"
+            android:textColor="#AAAAAA"
+            android:textSize="12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"/>
+        <SeekBar
+            android:id="@+id/seekStraighten"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:max="90"
+            android:progress="45"/>
+        <TextView
+            android:id="@+id/tvStraightenVal"
+            android:text="0°"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:layout_width="36dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
+    <!-- Transform buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="#242424"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp">
+        <Button
+            android:id="@+id/btnRotate90"
+            android:text="↺ 90°"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#333333"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="6dp"/>
+        <Button
+            android:id="@+id/btnFlipH"
+            android:text="⇔ Flip H"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#333333"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="6dp"/>
+        <Button
+            android:id="@+id/btnFlipV"
+            android:text="⇕ Flip V"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#333333"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <!-- Perspective (horizontal tilt) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:background="#1a1a1a">
+        <TextView
+            android:text="H. Perspective"
+            android:textColor="#AAAAAA"
+            android:textSize="12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"/>
+        <SeekBar
+            android:id="@+id/seekPerspectiveH"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:max="200"
+            android:progress="100"/>
+        <TextView
+            android:id="@+id/tvPerspHVal"
+            android:text="0"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:layout_width="36dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="12dp"
+        android:background="#1a1a1a">
+        <TextView
+            android:text="V. Perspective"
+            android:textColor="#AAAAAA"
+            android:textSize="12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"/>
+        <SeekBar
+            android:id="@+id/seekPerspectiveV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:max="200"
+            android:progress="100"/>
+        <TextView
+            android:id="@+id/tvPerspVVal"
+            android:text="0"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:layout_width="36dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
+</LinearLayout>
