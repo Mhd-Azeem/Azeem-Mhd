@@ -5,14 +5,13 @@ on:
   push:
     branches:
       - movnet-apk-build
-    paths:
-      - "movnet-project.b64"
-      - ".github/workflows/build-movnet.yml"
+  pull_request:
+    branches:
+      - claude/android-app-guidance-jo1f35
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
