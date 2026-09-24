@@ -1,0 +1,60 @@
+name: Build MovNet APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - movnet-apk-build
+    paths:
+      - "movnet-project.b64"
+      - ".github/workflows/build-movnet.yml"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Restore MovNet project
+        run: |
+          mkdir -p movnet
+          base64 -d movnet-project.b64 > movnet/project.zip
+          unzip -q movnet/project.zip -d movnet
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Gradle 9.6
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "9.6.0"
+
+      - name: Install Android SDK packages
+        run: |
+          yes | sdkmanager --licenses >/dev/null || true
+          sdkmanager "platforms;android-36" "build-tools;36.0.0"
+
+      - name: Build debug APK
+        run: gradle -p movnet :app:assembleDebug --stacktrace
+
+      - name: Build release AAB
+        run: gradle -p movnet :app:bundleRelease --stacktrace
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: MovNet-debug-apk
+          path: movnet/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+
+      - name: Upload AAB
+        uses: actions/upload-artifact@v4
+        with:
+          name: MovNet-release-aab
+          path: movnet/app/build/outputs/bundle/release/app-release.aab
+          if-no-files-found: error
